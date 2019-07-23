@@ -21,11 +21,18 @@ var timedQuestion = function (questionArray) {
   for (i=1; i<questions[0].length-1; i++ ) {        
     var choice = $("<li>");
     choice.attr("index", i);
+    choice.attr("answer", questions[position][5]);
     choice.text(questions[position][i]);
     list.append(choice);
   };
 
   $("#choice").append(list);
+  
+  $("li").click(function(){
+    // if(questions[position][5])
+    
+    alert(questions[position][5]);
+  });
 
 };
 

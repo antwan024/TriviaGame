@@ -20,8 +20,8 @@ var timedQuestion = function (questionArray) {
     
   for (i=1; i<questions[0].length-1; i++ ) {        
     var choice = $("<li>");
-    var index = i;
-    choice.attr("index-" + i, index);
+    var index = i-1;
+    choice.attr("id", index);
     choice.attr("answer", questions[position][5]);
     choice.text(questions[position][i]);
     list.append(choice);
@@ -32,19 +32,24 @@ var timedQuestion = function (questionArray) {
   
   
   
-  $("#choice").click(function(){
+  $(choice).click(function(){
     
    var answer = $(choice).attr("answer");
+   var decision = $(choice).attr("id");
    
     
-   if(parseInt(answer) === questions[position][5]) {
-      
-      alert("Coorect! The answer is "+  questions[position][5]);
-      
-    } else { 
-      alert(questions[position][5] + " and the index is " + index + ". The correct answer is " + answer);  
+   alert("You clicked option  " + decision + ". The answer is " + questions[position][5]);
     
-    }   
+   
+    
+//    if(parseInt(decision) === questions[position][5]) {
+      
+//       alert("Coorect! The answer is "+  questions[position][5]);
+      
+//     } else { 
+//       alert(questions[position][5] + " You chose  " + decision + " and the index is " + index + ". The correct answer is " + answer);  
+    
+//     }   
     
   });
   

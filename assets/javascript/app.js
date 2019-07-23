@@ -5,6 +5,7 @@ var questions = [
     ["Who is Adam Sandler's famous character?", "Happy Gilmore", "Thor", "Iron Man", "John Wick", 0]
     ];
 
+var position = 0;
 
 var timedQuestion = function (questionArray) {
 
@@ -15,8 +16,10 @@ var timedQuestion = function (questionArray) {
 
     // };
 
+  
     
-    $("#question").text(questions[0][0]);
+  
+    $("#question").text(questions[position][0]);
 
     var list = $("<ul>");
     for (i=1; i<questions[0].length-1; i++ ) {
@@ -35,5 +38,13 @@ timedQuestion(questions);
 
 
 
+var timeLeft = 30;
 
+var myTimer = function() {
+  timeLeft--;
+  $("#timer").text(timeLeft);    
+};
+
+
+setInterval(myTimer, 1000);
 

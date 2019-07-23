@@ -40,6 +40,7 @@ var myTimer = function() {
   if (timeLeft===0) {
     // clearInterval(interval);
     timeLeft = 10;
+    $("#timer").text(10); 
     position++;
     timedQuestion(questions);
   };

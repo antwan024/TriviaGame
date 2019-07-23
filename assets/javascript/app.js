@@ -6,5 +6,13 @@ var questions = [
     ];
 
 
+var timedQuestion = function (questionArray) {
+
+    
+
+};
+
+
+
 
 

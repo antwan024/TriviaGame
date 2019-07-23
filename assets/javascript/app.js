@@ -21,7 +21,7 @@ var timedQuestion = function (questionArray) {
   for (i=1; i<questions[0].length-1; i++ ) {        
     var choice = $("<li>");
     var index = i;
-    choice.attr("index", index);
+    choice.attr("index-" + i, index);
     choice.attr("answer", questions[position][5]);
     choice.text(questions[position][i]);
     list.append(choice);
@@ -32,11 +32,12 @@ var timedQuestion = function (questionArray) {
   
   
   
-  $("li").click(function(){
+  $("#choice").click(function(){
     
    var answer = $(choice).attr("answer");
+   
     
-   if(answer.toString() === questions[position][5]) {
+   if(parseInt(answer) === questions[position][5]) {
       
       alert("Coorect! The answer is "+  questions[position][5]);
       

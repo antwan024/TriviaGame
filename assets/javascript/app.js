@@ -38,7 +38,7 @@ var myTimer = function() {
   $("#timer").text(timeLeft);   
   
   if (timeLeft===0) {
-    clearInterval(interval);
+    // clearInterval(interval);
     timeLeft = 10;
     position++;
     timedQuestion(questions);

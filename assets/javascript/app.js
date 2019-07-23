@@ -8,9 +8,30 @@ var questions = [
 
 var timedQuestion = function (questionArray) {
 
+    // for(var i=0; i<questions.length; i++) {
+
+    //     $("#question").text(questions[i][0]);
+    //     $("#choice").text()
+
+    // };
+
     
+    $("#question").text(questions[0][0]);
+
+    var list = $("<ul>");
+    for (i=1; i<questions[0].length-1; i++ ) {
+        
+        var choice = $("<li>");
+        choice.attr("index", i);
+        choice.text(questions[0][i]);
+        list.append(choice);
+    };
+
+    $("#choice").append(list);
 
 };
+
+timedQuestion(questions);
 
 
 

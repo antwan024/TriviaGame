@@ -2,7 +2,8 @@ var questions = [
     ["Who is The Rock?", "Michael Jackson", "Michael Jordan", "Elvis", "Dwayne Johnson", 3],
     ["Who is the famous Taylor?", "Smith", "Swift", "Swimm", "Slappy", 1 ],
     ["What is Michael Jordan Famous for?", "Football", "Squash", "Basketball", "Music", 2],
-    ["Who is Adam Sandler's famous character?", "Happy Gilmore", "Thor", "Iron Man", "John Wick", 0]
+    ["Who is Adam Sandler's famous character?", "Happy Gilmore", "Thor", "Iron Man", "John Wick", 0],
+    ["Who are the Wu-Tang Clan?", "A Sports Team", "Warriors", "Rappers", "Gymnists", 2]
     ];
 
 
@@ -35,8 +36,6 @@ var timedQuestion = function (questionArray) {
   
   
   $("#choiceList").click(function(e){
-    
-   
    
    if(e.target && e.target.nodeName == "LI") {
      
@@ -47,15 +46,16 @@ var timedQuestion = function (questionArray) {
      if (decision===answer){
        points++;
        $("#points").text(points);
-             
+       
      };
      
    };
-    
-    
    
+   timedQuestion(questions); 
     
   });
+  
+  
   
 };
 

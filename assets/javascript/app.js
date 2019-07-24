@@ -16,12 +16,13 @@ var timedQuestion = function (questionArray) {
 
   $("#question").text(questions[position][0]);
 
-  var list = $("<ul>");
+  var list = $("<ul id = 'choiceList'>");
     
-  for (i=1; i<questions[0].length-1; i++ ) {        
+  for (var i=1; i<questions[0].length-1; i++ ) {        
     var choice = $("<li>");
     var index = i-1;
-    choice.attr("id", index);
+    choice.attr("id", "listChoice");
+    choice.attr("choice", index);
     choice.attr("answer", questions[position][5]);
     choice.text(questions[position][i]);
     list.append(choice);
@@ -32,24 +33,20 @@ var timedQuestion = function (questionArray) {
   
   
   
-  $(choice).click(function(){
-    
-   var answer = $(choice).attr("answer");
-   var decision = $(choice).attr("id");
-   
-    
-   alert("You clicked option  " + decision + ". The answer is " + questions[position][5]);
+  $("#choiceList").click(function(e){
     
    
+   
+   if(e.target && e.target.nodeName == "LI") {
+     
+      var answer = $(e.target).attr("answer");
+      var decision = $(e.target).attr("choice");
+      alert("You clicked option  " + decision + ". The answer is " + answer +" AND " + e.target.getAttribute("choice") + " was clicked");
+     
+   };
     
-//    if(parseInt(decision) === questions[position][5]) {
-      
-//       alert("Coorect! The answer is "+  questions[position][5]);
-      
-//     } else { 
-//       alert(questions[position][5] + " You chose  " + decision + " and the index is " + index + ". The correct answer is " + answer);  
     
-//     }   
+   
     
   });
   

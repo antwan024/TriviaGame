@@ -10,6 +10,19 @@ var questions = [
 var position = 0;
 var points = 0;
 
+var nextQuestion = function() {    
+ 
+  timeLeft = 10;
+    
+  $("#timer").text(10); 
+
+  if (position === questions.length-1) {
+    position = 0;
+  } else {
+    position++;
+  };
+  
+};
 
 var timedQuestion = function (questionArray) {
   
@@ -37,24 +50,22 @@ var timedQuestion = function (questionArray) {
   
   $("#choiceList").click(function(e){
    
-   if(e.target && e.target.nodeName == "LI") {
+    if(e.target && e.target.nodeName == "LI") {
      
       var answer = $(e.target).attr("answer");
       var decision = $(e.target).attr("choice");
       // alert("You clicked option  " + decision + ". The answer is " + answer +" AND " + e.target.getAttribute("choice") + " was clicked");
-      
-     if (decision===answer){
-       points++;
-       $("#points").text(points);
-       
-     };
+
+      if (decision===answer){
+        points++;
+        $("#points").text(points);
+      };
      
-   };
+    };
    
-   position++;
-   $("#timer").text(10); 
-   timeLeft=10;
-   timedQuestion(questions); 
+    nextQuestion();
+    timedQuestion(questions); 
+   
     
   });
   
@@ -72,19 +83,12 @@ var myTimer = function() {
   $("#timer").text(timeLeft);   
   
   if (timeLeft===0) {
-    
-    timeLeft = 10;
-    
-    $("#timer").text(10); 
-    
-    if (position === questions.length-1) {
-      position = 0;
-    } else {
-      position++;
-    };
-    
+       
+    nextQuestion();
     timedQuestion(questions);
   };
+  
+  
 };
 
 

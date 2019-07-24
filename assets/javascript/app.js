@@ -7,6 +7,7 @@ var questions = [
 
 
 var position = 0;
+var points = 0;
 
 
 var timedQuestion = function (questionArray) {
@@ -41,7 +42,13 @@ var timedQuestion = function (questionArray) {
      
       var answer = $(e.target).attr("answer");
       var decision = $(e.target).attr("choice");
-      alert("You clicked option  " + decision + ". The answer is " + answer +" AND " + e.target.getAttribute("choice") + " was clicked");
+      // alert("You clicked option  " + decision + ". The answer is " + answer +" AND " + e.target.getAttribute("choice") + " was clicked");
+      
+     if (decision===answer){
+       points++;
+       $("#points").text(points);
+             
+     };
      
    };
     

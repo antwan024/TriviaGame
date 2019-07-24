@@ -51,6 +51,9 @@ var timedQuestion = function (questionArray) {
      
    };
    
+   position++;
+   $("#timer").text(10); 
+   timeLeft=10;
    timedQuestion(questions); 
     
   });

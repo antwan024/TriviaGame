@@ -6,10 +6,11 @@ var questions = [
     ["Who are the Wu-Tang Clan?", "A Sports Team", "Warriors", "Rappers", "Gymnists", 2]
     ];
 
-
+//position is the index of each question.
 var position = 0;
 var points = 0;
 
+//nestQuestion will reset countdown and itterate up to the next question.
 var nextQuestion = function() {    
  
   timeLeft = 10;
@@ -17,13 +18,15 @@ var nextQuestion = function() {
   $("#timer").text(10); 
 
   if (position === questions.length-1) {
-    position = 0;
+    endGame();
   } else {
     position++;
   };
-  
+
 };
 
+
+//timedQuestion will write to HTML, and call the event click for each li item.
 var timedQuestion = function (questionArray) {
   
   $("#question").empty();
@@ -44,18 +47,15 @@ var timedQuestion = function (questionArray) {
   };
 
   $("#choice").append(list);
-  
-  
-  
-  
+
+  //will get click data and points and go to next question.
   $("#choiceList").click(function(e){
    
     if(e.target && e.target.nodeName == "LI") {
      
       var answer = $(e.target).attr("answer");
       var decision = $(e.target).attr("choice");
-      // alert("You clicked option  " + decision + ". The answer is " + answer +" AND " + e.target.getAttribute("choice") + " was clicked");
-
+      
       if (decision===answer){
         points++;
         $("#points").text(points);
@@ -65,12 +65,8 @@ var timedQuestion = function (questionArray) {
    
     nextQuestion();
     timedQuestion(questions); 
-   
-    
+
   });
-  
-  
-  
 };
 
 
@@ -78,21 +74,48 @@ timedQuestion(questions);
 
 var timeLeft = 10;
 
+//Timer to countdown and go to next question.
 var myTimer = function() {
   timeLeft--;
   $("#timer").text(timeLeft);   
   
   if (timeLeft===0) {
-       
     nextQuestion();
     timedQuestion(questions);
   };
-  
-  
+
 };
 
 
+//ends the game and determines win/loss.
+var endGame = function() {
+
+    clearInterval(interval);
+    $("#questionHeader").empty();
+    $("#choices").empty();
+    $("#timerHeader").empty();
+
+    if (points>=3) {
+        $("#choices").text("You Win!");
+    } else {
+        $("#choices").text("You Lose!");
+    };
+
+};
+
+
+
+$("#reset").click(function(e){
+   
+    position = 0;
+    points = 0;
+    $("#points").text(0);
+    timeLeft = 10;
+    $("#timer").text(10); 
+    interval = setInterval(myTimer, 1000);
+    timedQuestion(questions);
+
+});
+
+
 var interval = setInterval(myTimer, 1000);
-
-
-

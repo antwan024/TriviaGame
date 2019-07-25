@@ -1,0 +1,23 @@
+#instructions {
+    height: 200px;
+}
+
+#header {
+    height: 100px;
+}
+
+#timerHeader {
+    height: 100px;
+}
+
+#questionHeader {
+    height: 100px;
+}
+
+#choices {
+    height: 150px;
+}
+
+#total {
+    height: 100px;
+}

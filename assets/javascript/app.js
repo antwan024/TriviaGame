@@ -111,17 +111,22 @@ $("#reset").click(function(e){
 
         //ends the game and determines win/loss.
 var endGame = function() {
+  
     clearInterval(interval);
-        // $("#question").text('');
-    $("#choice").on(event.currentTarget, $("#choice").empty());
-
-    if (points>=3) {
-      // $("#choice").on(event.currentTarget, $("#choice").text("You Win!"));    
-      $("#choice").text("You Win!");
-    } else {
-      // $("#choice").on(event.currentTarget, $("#choice").text("You Lose!"));
-      $("#choice").text("You Win!");
+  
+    var determineText = function(){
+      
+      if (points>=3) {
+        $("#choice").text("You Win!");
+      } else {
+        $("#choice").text("You Lose!");
+      }
+      
     };
+  
+  
+    $("#question").text('');
+    $(this).on(event.currentTarget, determineText());
 
 };
 

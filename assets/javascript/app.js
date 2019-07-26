@@ -126,6 +126,7 @@ var endGame = function() {
   
   
     $("#question").text('');
+    $("#timer").text('done');
     $(this).on(event.currentTarget, determineText());
 
 };

@@ -47,6 +47,8 @@ var timedQuestion = function (questionArray) {
   };
 
   $("#choice").append(list);
+  
+
 
   //will get click data and points and go to next question.
   $("#choiceList").click(function(e){
@@ -62,20 +64,20 @@ var timedQuestion = function (questionArray) {
       };
      
     };
-    
-    // position++;
+  
     console.log(position);
     console.log(questions.length-1);
     nextQuestion();
     timedQuestion(questions); 
-
+    
   });
+  
+
+  
 };
 
 
-timedQuestion(questions);
 
-var timeLeft = 10;
 
 //Timer to countdown and go to next question.
 var myTimer = function() {
@@ -90,27 +92,7 @@ var myTimer = function() {
 };
 
 
-//ends the game and determines win/loss.
-var endGame = function() {
 
-    clearInterval(interval);
-  
-    $("#question").text('');
-    $("li").empty();
-    
-    if (points>=3) {
-      
-        $("#timer").text("You Win!");
-     
-        
-    } else {
-       
-        $("#timer").text("You Lose!");
-     
-      
-    };
-
-};
 
 
 
@@ -127,5 +109,23 @@ $("#reset").click(function(e){
 
 });
 
+        //ends the game and determines win/loss.
+var endGame = function() {
+    clearInterval(interval);
+        // $("#question").text('');
+    $("#choice").on(event.currentTarget, $("#choice").empty());
+
+    if (points>=3) {
+      // $("#choice").on(event.currentTarget, $("#choice").text("You Win!"));    
+      $("#choice").text("You Win!");
+    } else {
+      // $("#choice").on(event.currentTarget, $("#choice").text("You Lose!"));
+      $("#choice").text("You Win!");
+    };
+
+};
+
 
 var interval = setInterval(myTimer, 1000);
+timedQuestion(questions);
+var timeLeft = 10;

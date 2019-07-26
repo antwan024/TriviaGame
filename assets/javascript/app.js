@@ -62,7 +62,10 @@ var timedQuestion = function (questionArray) {
       };
      
     };
-   
+    
+    // position++;
+    console.log(position);
+    console.log(questions.length-1);
     nextQuestion();
     timedQuestion(questions); 
 
@@ -91,14 +94,20 @@ var myTimer = function() {
 var endGame = function() {
 
     clearInterval(interval);
-    $("#questionHeader").empty();
-    $("#choices").empty();
-    $("#timerHeader").empty();
-
+  
+    $("#question").text('');
+    $("li").empty();
+    
     if (points>=3) {
-        $("#choices").text("You Win!");
+      
+        $("#timer").text("You Win!");
+     
+        
     } else {
-        $("#choices").text("You Lose!");
+       
+        $("#timer").text("You Lose!");
+     
+      
     };
 
 };
@@ -112,8 +121,9 @@ $("#reset").click(function(e){
     $("#points").text(0);
     timeLeft = 10;
     $("#timer").text(10); 
-    interval = setInterval(myTimer, 1000);
     timedQuestion(questions);
+    interval = setInterval(myTimer, 1000);
+    
 
 });
 

@@ -1,4 +1,27 @@
-<<<<<<< HEAD
+#instructions {
+    height: 200px;
+}
+
+#header {
+    height: 100px;
+}
+
+#timerHeader {
+    height: 200px;
+}
+
+#questionHeader {
+    height: 100px;
+}
+
+#choices {
+    height: 150px;
+}
+
+#total {
+    height: 100px;
+}
+
 #instructions {
     height: 200px;
 }
@@ -22,28 +45,4 @@
 #total {
     height: 100px;
 }
-=======
-#instructions {
-    height: 200px;
-}
 
-#header {
-    height: 100px;
-}
-
-#timerHeader {
-    height: 100px;
-}
-
-#questionHeader {
-    height: 100px;
-}
-
-#choices {
-    height: 150px;
-}
-
-#total {
-    height: 100px;
-}
->>>>>>> c1d073f7d7e77b963d043b1aa65cc1fed31825a7

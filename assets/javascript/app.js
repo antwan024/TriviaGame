@@ -17,7 +17,7 @@ var nextQuestion = function() {
   timeLeft = 10;
   $("#timer").text(10); 
 
-  if (position === questions.length-1) {
+  if (position === questions.length) {
     endGame();
   } else {
     // position++;
@@ -66,7 +66,7 @@ var timedQuestion = function (questionArray) {
     };
   
     console.log(position);
-    console.log(questions.length-1);
+    console.log(questions.length);
     nextQuestion();
     timedQuestion(questions); 
     
@@ -116,18 +116,19 @@ var endGame = function() {
   
     var determineText = function(){
       
+
         if (points>=3) {
           $("#choice").text("You Win!");
         } else {
           $("#choice").text("You Lose!");
-        }
-      
+        };
+
     };
   
   
     $("#question").text('');
     $("#timer").text('done');
-    $(this).on(event.currentTarget, determineText());
+    $("#choice").on(event.currentTarget,null, determineText);
 
 };
 
@@ -135,3 +136,5 @@ var endGame = function() {
 var interval = setInterval(myTimer, 1000);
 timedQuestion(questions);
 var timeLeft = 10;
+
+

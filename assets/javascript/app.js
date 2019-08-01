@@ -13,14 +13,14 @@ var points = 0;
 //nestQuestion will reset countdown and itterate up to the next question.
 var nextQuestion = function() {    
  
+  position++;
   timeLeft = 10;
-    
   $("#timer").text(10); 
 
   if (position === questions.length-1) {
     endGame();
   } else {
-    position++;
+    // position++;
   };
 
 };
@@ -47,6 +47,8 @@ var timedQuestion = function (questionArray) {
   };
 
   $("#choice").append(list);
+  
+
 
   //will get click data and points and go to next question.
   $("#choiceList").click(function(e){
@@ -62,20 +64,20 @@ var timedQuestion = function (questionArray) {
       };
      
     };
-    
-    // position++;
+  
     console.log(position);
     console.log(questions.length-1);
     nextQuestion();
     timedQuestion(questions); 
-
+    
   });
+  
+
+  
 };
 
 
-timedQuestion(questions);
 
-var timeLeft = 10;
 
 //Timer to countdown and go to next question.
 var myTimer = function() {
@@ -90,27 +92,7 @@ var myTimer = function() {
 };
 
 
-//ends the game and determines win/loss.
-var endGame = function() {
 
-    clearInterval(interval);
-  
-    $("#question").text('');
-    $("li").empty();
-    
-    if (points>=3) {
-      
-        $("#timer").text("You Win!");
-     
-        
-    } else {
-       
-        $("#timer").text("You Lose!");
-     
-      
-    };
-
-};
 
 
 
@@ -127,5 +109,29 @@ $("#reset").click(function(e){
 
 });
 
+        //ends the game and determines win/loss.
+var endGame = function() {
+  
+    clearInterval(interval);
+  
+    var determineText = function(){
+      
+        if (points>=3) {
+          $("#choice").text("You Win!");
+        } else {
+          $("#choice").text("You Lose!");
+        }
+      
+    };
+  
+  
+    $("#question").text('');
+    $("#timer").text('done');
+    $(this).on(event.currentTarget, determineText());
+
+};
+
 
 var interval = setInterval(myTimer, 1000);
+timedQuestion(questions);
+var timeLeft = 10;

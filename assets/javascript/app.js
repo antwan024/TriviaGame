@@ -123,6 +123,7 @@ var endGame = function() {
     determineText();
   
     $("#question").text('');
+
     $("#timer").text('done');    
 
 };

@@ -129,6 +129,11 @@ var endGame = function() {
 };
 
 
+
+
+
+
+
 var interval = setInterval(myTimer, 1000);
 timedQuestion(questions);
 var timeLeft = 10;

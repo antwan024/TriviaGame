@@ -1,9 +1,9 @@
 var questions = [
     ["Who is The Rock?", "Michael Jackson", "Michael Jordan", "Elvis", "Dwayne Johnson", 3,"assets/images/rock.jpg"],
     ["Who is the famous Taylor?", "Smith", "Swift", "Swimm", "Slappy", 1, "assets/images/taylor.jpg"],
-    ["What is Michael Jordan Famous for?", "Football", "Squash", "Basketball", "Music", 2,"../images/jordan.jpg"],
-    ["Who is Adam Sandler's famous character?", "Happy Gilmore", "Thor", "Iron Man", "John Wick", 0, "../images/happygilmore.png"],
-    ["Who are the Wu-Tang Clan?", "A Sports Team", "Warriors", "Rappers", "Gymnists", 2, "../images/wutang.png"]
+    ["What is Michael Jordan Famous for?", "Football", "Squash", "Basketball", "Music", 2,"assets/images/jordan.jpg"],
+    ["Who is Adam Sandler's famous character?", "Happy Gilmore", "Thor", "Iron Man", "John Wick", 0, "assets/images/happygilmore.png"],
+    ["Who are the Wu-Tang Clan?", "A Sports Team", "Warriors", "Rappers", "Gymnists", 2, "assets/images/wutang.png"]
     ];
 
 //position is the index of each question.
@@ -34,6 +34,7 @@ var timedQuestion = function (array) {
   
     $("#question").empty();
     $("#choice").empty();
+    $("#resultPic").empty();
 
     $("#question").text(array[position][0]);
 
@@ -56,7 +57,7 @@ var timedQuestion = function (array) {
     //will get click data and points and go to next question.
     $("#choiceList").click(function(e){
     
-        position++;
+        
 
         if(e.target && e.target.nodeName == "LI") {
           
@@ -77,9 +78,9 @@ var timedQuestion = function (array) {
         };
 
         
-
+        position++;
         console.log(questions.length);
-        setTimeout(nextQuestion,1200);       
+        setTimeout(nextQuestion,1400);       
       
     });  
 };
@@ -102,6 +103,7 @@ var setImageWin = function(){
 
     $("#choice").empty();
     $("#choice").text("You are correct!");
+    $("#resultPic").empty();
     $("#resultPic").append("<img src=" + questions[position][6] + ">");
 
 };
@@ -110,7 +112,8 @@ var setImageLose = function(){
 
     $("#choice").empty();
     $("#choice").text("You are wrong!");
-    $("#resultPic").append("<img src=" + questions[position][6] + "/>");
+    $("#resultPic").empty();
+    $("#resultPic").append("<img src='assets/images/loser.jpg'>");
 
 };
 
@@ -139,8 +142,13 @@ var endGame = function() {
       
         if (points>=3) {
           $("#choice").text("You Win!");
+          $("#resultPic").empty();
+          $("#resultPic").append("<img src='assets/images/winner.jpg'>");
+
         } else {
           $("#choice").text("You Lose!");
+          $("#resultPic").empty();
+          $("#resultPic").append("<img src='assets/images/youLose.jpg'>");
         };
 
     };

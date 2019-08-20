@@ -1,6 +1,6 @@
 var questions = [
-    ["Who is The Rock?", "Michael Jackson", "Michael Jordan", "Elvis", "Dwayne Johnson", 3,"../images/rock.jpg"],
-    ["Who is the famous Taylor?", "Smith", "Swift", "Swimm", "Slappy", 1, "../images/taylor.jpg"],
+    ["Who is The Rock?", "Michael Jackson", "Michael Jordan", "Elvis", "Dwayne Johnson", 3,"assets/images/rock.jpg"],
+    ["Who is the famous Taylor?", "Smith", "Swift", "Swimm", "Slappy", 1, "assets/images/taylor.jpg"],
     ["What is Michael Jordan Famous for?", "Football", "Squash", "Basketball", "Music", 2,"../images/jordan.jpg"],
     ["Who is Adam Sandler's famous character?", "Happy Gilmore", "Thor", "Iron Man", "John Wick", 0, "../images/happygilmore.png"],
     ["Who are the Wu-Tang Clan?", "A Sports Team", "Warriors", "Rappers", "Gymnists", 2, "../images/wutang.png"]
@@ -102,6 +102,7 @@ var setImageWin = function(){
 
     $("#choice").empty();
     $("#choice").text("You are correct!");
+    $("#resultPic").append("<img src=" + questions[position][6] + ">");
 
 };
 
@@ -109,6 +110,7 @@ var setImageLose = function(){
 
     $("#choice").empty();
     $("#choice").text("You are wrong!");
+    $("#resultPic").append("<img src=" + questions[position][6] + "/>");
 
 };
 
@@ -120,7 +122,7 @@ $("#reset").click(function(){
     position = 0;
     points = 0;
     $("#points").text(0);
-    timeLeft = 10;
+    timeLeft = 10;1
     $("#timer").text(10); 
     timedQuestion(questions);
     interval = setInterval(myTimer, 1000);

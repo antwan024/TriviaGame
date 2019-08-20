@@ -1,5 +1,5 @@
 #instructions {
-    height: 200px;
+    /* height: 200px; */
 }
 
 #header {
@@ -7,42 +7,29 @@
 }
 
 #timerHeader {
-    height: 200px;
+    height: 75px;
 }
 
 #questionHeader {
-    height: 100px;
+    /* height: 100px; */
+}
+
+#img {
+    
+    height: 250px;
 }
 
 #choices {
-    height: 150px;
+    /* height: 50px; */
 }
 
 #total {
-    height: 100px;
+    /* height: 100px; */
 }
 
-#instructions {
-    height: 200px;
-}
 
-#header {
-    height: 100px;
-}
 
-#timerHeader {
-    height: 100px;
-}
 
-#questionHeader {
-    height: 100px;
-}
 
-#choices {
-    height: 150px;
-}
 
-#total {
-    height: 100px;
-}
 

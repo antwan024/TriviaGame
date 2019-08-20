@@ -104,7 +104,8 @@ var setImageWin = function(){
     $("#choice").empty();
     $("#choice").text("You are correct!");
     $("#resultPic").empty();
-    $("#resultPic").append("<img src=" + questions[position][6] + ">");
+    $("#question").empty();
+    $("#resultPic").append("<img id='img' src=" + questions[position][6] + ">");
 
 };
 
@@ -113,7 +114,8 @@ var setImageLose = function(){
     $("#choice").empty();
     $("#choice").text("You are wrong!");
     $("#resultPic").empty();
-    $("#resultPic").append("<img src='assets/images/loser.jpg'>");
+    $("#question").empty();
+    $("#resultPic").append("<img id='img' src='assets/images/loser.jpg'>");
 
 };
 
@@ -143,12 +145,12 @@ var endGame = function() {
         if (points>=3) {
           $("#choice").text("You Win!");
           $("#resultPic").empty();
-          $("#resultPic").append("<img src='assets/images/winner.jpg'>");
+          $("#resultPic").append("<img id='img' src='assets/images/winner.jpg'>");
 
         } else {
           $("#choice").text("You Lose!");
           $("#resultPic").empty();
-          $("#resultPic").append("<img src='assets/images/youLose.jpg'>");
+          $("#resultPic").append("<img id='img' src='assets/images/youLose.jpg'>");
         };
 
     };

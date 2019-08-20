@@ -1,9 +1,9 @@
 var questions = [
-    ["Who is The Rock?", "Michael Jackson", "Michael Jordan", "Elvis", "Dwayne Johnson", 3],
-    ["Who is the famous Taylor?", "Smith", "Swift", "Swimm", "Slappy", 1 ],
-    ["What is Michael Jordan Famous for?", "Football", "Squash", "Basketball", "Music", 2],
-    ["Who is Adam Sandler's famous character?", "Happy Gilmore", "Thor", "Iron Man", "John Wick", 0],
-    ["Who are the Wu-Tang Clan?", "A Sports Team", "Warriors", "Rappers", "Gymnists", 2]
+    ["Who is The Rock?", "Michael Jackson", "Michael Jordan", "Elvis", "Dwayne Johnson", 3,"../images/rock.jpg"],
+    ["Who is the famous Taylor?", "Smith", "Swift", "Swimm", "Slappy", 1, "../images/taylor.jpg"],
+    ["What is Michael Jordan Famous for?", "Football", "Squash", "Basketball", "Music", 2,"../images/jordan.jpg"],
+    ["Who is Adam Sandler's famous character?", "Happy Gilmore", "Thor", "Iron Man", "John Wick", 0, "../images/happygilmore.png"],
+    ["Who are the Wu-Tang Clan?", "A Sports Team", "Warriors", "Rappers", "Gymnists", 2, "../images/wutang.png"]
     ];
 
 //position is the index of each question.
@@ -39,7 +39,7 @@ var timedQuestion = function (array) {
 
     var list = $("<ul id = 'choiceList'>");
       
-    for (var i=1; i<array[0].length-1; i++ ) {        
+    for (var i=1; i<array[0].length-2; i++ ) {        
         var choice = $("<li>");
         var index = i-1;
         choice.attr("id", "listChoice");
@@ -69,10 +69,9 @@ var timedQuestion = function (array) {
             if (decision===answer){
                 points++;
                 $("#points").text(points);
-                setImage();
-                
-
-
+                setImageWin();
+            }else{
+                setImageLose();
             };
           
         };
@@ -80,7 +79,7 @@ var timedQuestion = function (array) {
         
 
         console.log(questions.length);
-        setTimeout(nextQuestion,1000);       
+        setTimeout(nextQuestion,1200);       
       
     });  
 };
@@ -99,10 +98,17 @@ var myTimer = function() {
 };
 
 
-var setImage = function(){
+var setImageWin = function(){
 
     $("#choice").empty();
     $("#choice").text("You are correct!");
+
+};
+
+var setImageLose = function(){
+
+    $("#choice").empty();
+    $("#choice").text("You are wrong!");
 
 };
 

@@ -18,11 +18,12 @@ var nextQuestion = function() {
     timeLeft = 10;
     $("#timer").text(10); 
     
+    
 
     if (position === questions.length) {
-      endGame();
+        endGame();
     } else {
-      timedQuestion(questions); 
+        timedQuestion(questions); 
     };
 
 };
@@ -39,13 +40,13 @@ var timedQuestion = function (array) {
     var list = $("<ul id = 'choiceList'>");
       
     for (var i=1; i<array[0].length-1; i++ ) {        
-      var choice = $("<li>");
-      var index = i-1;
-      choice.attr("id", "listChoice");
-      choice.attr("choice", index);
-      choice.attr("answer", array[position][5]);
-      choice.text(array[position][i]);
-      list.append(choice);
+        var choice = $("<li>");
+        var index = i-1;
+        choice.attr("id", "listChoice");
+        choice.attr("choice", index);
+        choice.attr("answer", array[position][5]);
+        choice.text(array[position][i]);
+        list.append(choice);
     };
 
     $("#choice").append(list);
@@ -66,14 +67,20 @@ var timedQuestion = function (array) {
             console.log(e.target.nodeName);
             
             if (decision===answer){
-              points++;
-              $("#points").text(points);
+                points++;
+                $("#points").text(points);
+                setImage();
+                
+
+
             };
           
         };
 
+        
+
         console.log(questions.length);
-        nextQuestion();       
+        setTimeout(nextQuestion,1000);       
       
     });  
 };
@@ -90,6 +97,16 @@ var myTimer = function() {
     };
 
 };
+
+
+var setImage = function(){
+
+    $("#choice").empty();
+    $("#choice").text("You are correct!");
+
+};
+
+
 
 
 $("#reset").click(function(){
@@ -127,11 +144,6 @@ var endGame = function() {
     $("#timer").text('done');    
 
 };
-
-
-
-
-
 
 
 var interval = setInterval(myTimer, 1000);

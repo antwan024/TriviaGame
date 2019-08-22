@@ -80,7 +80,7 @@ var timedQuestion = function (array) {
         
         position++;
         console.log(questions.length);
-        setTimeout(nextQuestion,1400);       
+        setTimeout(nextQuestion,1200);       
       
     });  
 };
@@ -127,7 +127,7 @@ $("#reset").click(function(){
     position = 0;
     points = 0;
     $("#points").text(0);
-    timeLeft = 10;1
+    timeLeft = 10;
     $("#timer").text(10); 
     timedQuestion(questions);
     interval = setInterval(myTimer, 1000);
